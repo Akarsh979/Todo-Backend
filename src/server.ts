@@ -1,4 +1,4 @@
-import express from "express"
+import express, { type Application } from "express"
 import cors from "cors"
 import "./database/index.js"
 import cookieParser from "cookie-parser"
@@ -9,7 +9,7 @@ import { errorHandler } from "./middleware/errorMiddleware.js"
 
 const PORT = port ?? 8080
 
-export const app = express()
+export const app: Application = express()
 
 app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }))
 
@@ -26,3 +26,4 @@ app.use(errorHandler)
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
 })
+
